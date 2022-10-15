@@ -34,7 +34,7 @@ func (repo UserRepository) Ping() (string, error) {
 	ctx, cancel := utils.InitGRPCContext()
 	defer cancel()
 
-	r, err := repo.grpcClient.Ping(ctx, &userGRPC.PingMessage{})
+	r, err := repo.grpcClient.Ping(ctx, &userGRPC.PingInput{})
 	if err != nil {
 		log.Printf("could not ping: %v", err)
 		return "", err
