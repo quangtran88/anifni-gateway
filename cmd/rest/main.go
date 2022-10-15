@@ -18,7 +18,7 @@ func main() {
 	}
 
 	r := gin.Default()
-	rest.InitRoutes(r)
+	restHandler.InitRoutes(r)
 
 	port := utils.GetEnvDefault(constant.GatewayPortEnvKey, "5000")
 	log.Printf("Start gateway on http://localhost:%s", port)

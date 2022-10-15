@@ -1,8 +1,8 @@
-package rest
+package restHandler
 
 import (
 	"github.com/gin-gonic/gin"
-	rest "github.com/quangtran88/anifni-gateway/adapters/controllers/rest/handlers"
+	restHandler "github.com/quangtran88/anifni-gateway/adapters/controllers/rest/handlers"
 	"github.com/quangtran88/anifni-gateway/adapters/repositories"
 	"github.com/quangtran88/anifni-gateway/core/services"
 )
@@ -10,8 +10,8 @@ import (
 func InitRoutes(r *gin.Engine) {
 	userRepo := repositories.NewUserRepository()
 	userService := services.NewUserService(userRepo)
-	userHandler := rest.NewUserHandler(userService)
+	userHandler := restHandler.NewUserHandler(userService)
 
-	r.GET("/ping", rest.HandlePing)
+	r.GET("/ping", restHandler.HandlePing)
 	r.GET("/user/ping", userHandler.HandlePingUser)
 }
