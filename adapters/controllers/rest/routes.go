@@ -2,9 +2,9 @@ package rest
 
 import (
 	"github.com/gin-gonic/gin"
+	rest "github.com/quangtran88/anifni-gateway/adapters/controllers/rest/handlers"
+	"github.com/quangtran88/anifni-gateway/adapters/repositories"
 	"github.com/quangtran88/anifni-gateway/core/services"
-	rest "github.com/quangtran88/anifni-gateway/pkg/rest/handlers"
-	"github.com/quangtran88/anifni-gateway/repositories"
 )
 
 func InitRoutes(r *gin.Engine) {

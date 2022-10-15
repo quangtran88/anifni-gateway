@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"github.com/quangtran88/anifni-gateway/adapters/controllers/rest"
 	"github.com/quangtran88/anifni-gateway/constant"
-	"github.com/quangtran88/anifni-gateway/pkg/rest"
 	"github.com/quangtran88/anifni-gateway/utils"
 	"log"
 )
