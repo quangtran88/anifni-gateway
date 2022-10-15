@@ -17,6 +17,6 @@ func (srv UserService) Ping() (string, error) {
 	return srv.repo.Ping()
 }
 
-func (srv UserService) Get(id domain.ID) (domain.User, error) {
+func (srv UserService) Get(id domain.ID) (*domain.User, error) {
 	return srv.repo.FindById(id)
 }

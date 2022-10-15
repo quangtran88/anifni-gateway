@@ -26,8 +26,16 @@ func NewUserRepository() *UserRepository {
 	return &UserRepository{grpcClient: client}
 }
 
-func (repo UserRepository) FindById(id domain.ID) (domain.User, error) {
-	return domain.User{Id: id}, nil
+func (repo UserRepository) FindById(id domain.ID) (*domain.User, error) {
+	ctx, cancel := utils.InitGRPCContext()
+	defer cancel()
+
+	r, err := repo.grpcClient.GetUser(ctx, &userGRPC.GetUserInput{Id: string(id)})
+	if err != nil {
+		log.Printf("could not get user: %v", err)
+		return nil, err
+	}
+	return &domain.User{Id: domain.ID(r.Id), Name: r.Name}, nil
 }
 
 func (repo UserRepository) Ping() (string, error) {

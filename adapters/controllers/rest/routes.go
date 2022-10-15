@@ -14,4 +14,5 @@ func InitRoutes(r *gin.Engine) {
 
 	r.GET("/ping", restHandler.HandlePing)
 	r.GET("/user/ping", userHandler.HandlePingUser)
+	r.GET("/user/:id", userHandler.HandleGetUser)
 }
