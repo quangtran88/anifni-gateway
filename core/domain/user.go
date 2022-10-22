@@ -1,8 +1,9 @@
 package domain
 
-type ID string
-
 type User struct {
-	Id   ID
-	Name string
+	Pid       PID
+	Name      string
+	FirstName string
+	LastName  string
+	Email     string
 }

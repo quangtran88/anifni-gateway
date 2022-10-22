@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"github.com/quangtran88/anifni-gateway/adapters/controllers/rest"
+	"github.com/quangtran88/anifni-gateway/adapters/handlers/rest"
 	"github.com/quangtran88/anifni-gateway/constant"
 	"github.com/quangtran88/anifni-gateway/utils"
 	"log"
@@ -18,7 +18,7 @@ func main() {
 	}
 
 	r := gin.Default()
-	restHandler.InitRoutes(r)
+	restAdapters.InitRoutes(r)
 
 	port := utils.GetEnvDefault(constant.GatewayPortEnvKey, "5000")
 	log.Printf("Start gateway on http://localhost:%s", port)
