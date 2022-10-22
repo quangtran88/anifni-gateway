@@ -10,6 +10,10 @@ type CreateUserInput struct {
 	FirstName string
 }
 
+type PreRegisterUserInput struct {
+	Email string
+}
+
 type EventMessage struct {
 	Key   string
 	Value string

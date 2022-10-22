@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/quangtran88/anifni-base/libs/event"
-	"github.com/quangtran88/anifni-gateway/core/domain"
 	"github.com/quangtran88/anifni-gateway/core/ports"
 	"gopkg.in/errgo.v2/errors"
 )
@@ -18,7 +17,7 @@ func NewAuthUseCase(userSrv ports.UserService, event ports.EventProducer) *AuthU
 	return &AuthUseCase{userSrv, event}
 }
 
-func (uc AuthUseCase) RegisterUser(ctx context.Context, in domain.RegisterUserInput) (bool, error) {
+func (uc AuthUseCase) PreRegisterUser(ctx context.Context, in ports.PreRegisterUserInput) (bool, error) {
 	ok, err := uc.userSrv.CheckDuplicated(ctx, in.Email)
 	if err != nil {
 		return false, err

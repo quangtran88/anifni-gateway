@@ -19,5 +19,5 @@ func InitRoutes(r *gin.Engine) {
 	commonHandler := NewCommonHandler()
 
 	r.GET("/ping", commonHandler.HandlePing)
-	r.POST("/register", authHandler.HandleRegister)
+	r.POST("/pre-register", authHandler.HandlePreRegister)
 }

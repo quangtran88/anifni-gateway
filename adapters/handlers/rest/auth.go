@@ -3,9 +3,8 @@ package restAdapters
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/quangtran88/anifni-gateway/core/domain"
 	"github.com/quangtran88/anifni-gateway/core/ports"
-	"net/http"
+	"github.com/quangtran88/anifni-gateway/utils"
 )
 
 type AuthHandler struct {
@@ -16,24 +15,19 @@ func NewAuthHandler(authUC ports.AuthUseCase) *AuthHandler {
 	return &AuthHandler{authUC}
 }
 
-func (handler AuthHandler) HandleRegister(c *gin.Context) {
-	var dto domain.RegisterUserInput
-	if err := c.BindJSON(&dto); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err,
-		})
+func (h AuthHandler) HandlePreRegister(c *gin.Context) {
+	var dto ports.PreRegisterUserInput
+	err := c.BindJSON(&dto)
+	if err != nil {
+		utils.ReplyError(c, err)
 		return
 	}
-	ok, err := handler.authUC.RegisterUser(c.Copy(), dto)
+
+	ok, err := h.authUC.PreRegisterUser(c.Copy(), dto)
 	if err != nil || !ok {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": fmt.Sprintf("Error while register user: %s", err.Error()),
-		})
+		utils.ReplyError(c, fmt.Errorf("error while register user: %w", err))
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"status": "success",
-	})
-
+	utils.ReplySuccess(c)
 }
