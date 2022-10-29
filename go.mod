@@ -5,10 +5,8 @@ go 1.19
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/joho/godotenv v1.4.0
-	github.com/quangtran88/anifni-authentication v0.0.0-20221021162832-9fdc60743c39
-	github.com/quangtran88/anifni-base v1.0.10
+	github.com/quangtran88/anifni-base v1.2.2
 	github.com/quangtran88/anifni-grpc v1.2.1
-	github.com/segmentio/kafka-go v0.4.35
 	github.com/stretchr/testify v1.8.0
 	google.golang.org/grpc v1.50.1
 	gopkg.in/errgo.v2 v2.1.0
@@ -31,6 +29,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.1 // indirect
 	github.com/pierrec/lz4/v4 v4.1.17 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/segmentio/kafka-go v0.4.36 // indirect
 	github.com/stretchr/objx v0.4.0 // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a // indirect

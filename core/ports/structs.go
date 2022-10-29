@@ -13,8 +13,3 @@ type CreateUserInput struct {
 type PreRegisterUserInput struct {
 	Email string
 }
-
-type EventMessage struct {
-	Key   string
-	Value string
-}
